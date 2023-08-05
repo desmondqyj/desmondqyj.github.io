@@ -1,0 +1,350 @@
+*{
+    margin : 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    
+    
+}
+
+html{
+  scroll-behavior: smooth; /* enable smooth scrolling upon clicking on the tabs in nav bar */
+}
+
+body{
+    background-color: #080808;
+    color: #fff;
+}
+#header{
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/background2.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.container{
+    padding: 10px 10%; /* 10px from top and btm and 10% from left and right */   
+}
+
+nav {
+    background-color: #ff004f;
+  }
+  
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+  
+nav li {
+    display: inline-block; /* put the elements with this in one line */
+  }
+  
+nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none; /* text decoration removes all underline */
+    color: white;
+  }
+  
+nav ul li a:hover {
+    background-color: #333;
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: aqua;
+  }
+
+
+.logo {
+    position: absolute;
+    margin-top: 0px;  
+    margin-left:0px;
+    /* 0px from top and 0px from left referening the top of the container and the left of the container because logo is in the container */
+  }
+
+  .header-text{
+    margin-top: 20%;
+    font-size: 30px;
+
+  }
+
+  .header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
+  }
+
+  .header-text h1 span{
+    color: lightpink;
+  
+  }
+
+ /*  -----------about------------ */
+
+#about{
+  padding: 80px 0px;
+  color: #ababab; /* applying the color of all the texts in about */
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+
+.about-col-1{
+  flex-basis: 35%;
+}
+
+.about-col-1 img{
+  width: 100%; 
+  border-radius: 15px;
+}
+
+.about-col-2{
+  flex-basis: 60%;  /* flex basis is used to fill the remaining parts of the container which is not occupied */
+}
+
+.sub-title{
+  font-size: 60px;
+  font-weight: 600;
+  color: #fff;
+  
+}
+
+.tab-titles{
+  display: flex;  /* put it in a straight line  */
+  margin: 20px 0 40px; /* 20 px from top, 0 from left and right, 40px from bottom */
+}
+
+.tab-links{
+  margin-right: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer ;
+  position: relative;
+}
+
+.tab-links::after{
+  content: '';
+  width: 0;
+  height: 3px;
+  background: #ff004f;
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  transition: 0.5s;
+}
+
+.tab-links.active-link::after{
+  width: 50%;
+
+}
+
+.tab-contents ul li{
+  list-style: none;
+  margin: 10px 0px;
+}
+
+.tab-contents ul li span{
+  color: #ff004f;
+  font-size: 14px ;
+}
+
+.tab-contents{
+  display: none; /* hide all tab contents */  
+}
+
+.tab-contents.active-tab{
+  display: block;
+}
+
+/*-------  portfolio -----------*/
+
+#portfolio{
+  padding: 50px 0;  /* 50px from top and bottom and 0px from left and right */
+}
+
+.work-list{
+    display: grid; /* .work (child element) will be in a grid layout model */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* creates the column to fit availabe space */
+    grid-gap: 40px; /* creates a gap between each grid item (.work) */
+    margin-top: 50px; /* adding a space above work.list element */
+    
+}
+
+.work{
+    border-radius: 10px; /* creates curved edges on the .work elements */
+    position: relative;
+    overflow: hidden;
+}
+
+.work img{
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.5s;
+  
+}
+
+
+.layer{
+  width: 100%;
+  height: 0;
+  background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  text-align: center;
+  font-size: 14px;
+  transition: height 0.5s;
+  
+}
+
+.layer h3{
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.external-link {
+  margin-left: 5px;
+  
+}
+
+.layer a{
+  margin-top: 20px;
+  color: #ff004f;
+  font-size: 25px; /* adjust the size of the external link icon */
+  line-height: 60px;
+  background: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* 50% to create a circle */
+  text-align: center;
+  
+}
+
+.work:hover img{  /* whenever hover .work, will increase size of image  */
+  transform: scale(1.1);  /* together with transition in line 181 */
+}
+
+.work:hover .layer{  /* .layer height will increase upon hover from line 188 */
+  height: 100%;      /* add in transition: height 0.5s in line 202 */
+}
+
+.btn{
+  display: block;
+  margin: 50px auto;  /* 50px from top and bottom and auto for left and right */
+  width: fit-content;  /* align it to the middle?? */
+  border: 1px solid #ff004f;
+  padding: 14px 50px; /* 14px from top and btm and 50px left and right of border */
+  border-radius: 6px;
+  text-decoration: none; /* remove underline */
+  color: #fff;
+  transition: background 0.5s;
+}
+
+.btn:hover{
+  background: #ff004f; /* add transition in line 246*/
+}
+
+/* -----------contact-------------- */
+.contact-left{
+  flex-basis: 35%;
+}
+
+.contact-right{
+  flex-basis: 60%;
+}
+
+.contact-left p{
+  margin-top: 30px;
+}
+
+.contact-left p i{  /* editing the icons through the i tag */
+  color: #ff004f;
+  margin-right: 15px;
+  font-size: 25px;
+}
+
+.social-icons{
+  margin-top: 30px;
+}
+
+.social-icons a{
+  text-decoration: none;
+  font-size: 30px;
+  margin-right: 15px;
+  color: #ababab;
+  display: inline-block;
+  transition: transform 0.5s;
+}
+
+.social-icons a:hover{
+  color: #ff004f;
+  transform: translateY(-5px); /* move the icon up by 5px upon hover, can add transition in line 283  */
+}
+
+.btn.btn2{
+  margin-left: -10px;
+  background: #ff004f;
+  color: black;
+  
+}
+
+.contact-right form{
+  width: 100%;
+}
+
+form input, form textarea{ /* for input and textarea, we target its css */
+  width: 100%;  
+  border: 0;
+  outline: none;
+  background: #262626;
+  padding: 15px;  /*padding is used to create space within an element, while margin is used to create space around elements and affects their positioning in relation to other elements  */
+  margin: 15px 0; /* 15px from top and btm */
+  color: #fff; /* text color written in input field */
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+form .btn2{  /* targets the submit button */
+  padding: 14px 60px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+  /* when u click submit, it will say please fill out this field, because of the 'required' in form */
+}
+
+.copyright{
+  width: 100%;
+  text-align: center;
+  padding: 25px 0;
+  background: #262626;
+  font-weight: 300;
+  margin-top: 20px;
+  color: #ff004f;
+  
+}
+
+.copyright i{
+  color: aquamarine;
+}
+
+
+
+
+
+ 
+
+
